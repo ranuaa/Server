@@ -24,9 +24,10 @@ app.use(express.urlencoded({extended: true }))
 app.use( express.static(__dirname))
 
 // Connection to DB
-const PORT = process.env.PORT
-dbconnection()
-app.listen(PORT, () => console.log("Serrver is runningon Port " + PORT))
+const PORT = process.env.PORT || 5000
+dbconnection().then(() => {
+    app.listen(PORT, () => console.log("Serrver is runningon Port " + PORT))
+})
 //
 
 //routes
