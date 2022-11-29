@@ -44,7 +44,7 @@ export const logIn = async(req,res) => {
                 _id: user._id,
                 email: user.email,
                 isAdmin : user.isAdmin
-            }, process.env.JWT_KEY)
+            }, process.env.JWT_KEY || 'RAHASIA')
             const {password, ...details} = user._doc
             res.status(200).json({
                 message: "Success login",
